@@ -5,6 +5,7 @@ import { useAuth } from "../../Context/AuthContext";
 import { useSafeBuyContext } from "../../Context/SafeBuyContext";
 import ProductCanvas from "../ProductPage/ProductCanvas";
 
+
 const BuyPage = () => {
 	const { checkIfWalletConnected, currentAccount } = useAuth();
 	const [product, setProduct] = useState([]);
