@@ -1,6 +1,7 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
+
 import Register from "./pages/Register/Register";
 import RegisterCompany from "./pages/RegisterCompany/RegisterCompany";
 import HomePage from "./pages/HomePage/HomePage";
