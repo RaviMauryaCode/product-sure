@@ -25,9 +25,11 @@ const Navbar = () => {
                 <div onClick={navigateToHome} className={styles.logoContainer}>
                     <img className={styles.logoImg} src={logo} alt="" />
                 </div>
+
                 <div>
                     <Avatar className={styles.avatar} {...config} />
                 </div>
+                {/* navbar is here */}
             </div>
         </div>
     );
