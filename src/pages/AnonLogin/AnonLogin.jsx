@@ -31,9 +31,8 @@ const AnonLogin = () => {
     const handleAnon = async () => {
         if (latestProof) {
             const anonData = JSON.parse(latestProof);
-            // console.log(anonData)
+
             if (anonData?.proof.ageAbove18) {
-                // console.log(anonData.proof.ageAbove18);
                 if (anonData.proof.gender === "77" && userGender === "M" || anonData?.proof.gender === "70" && userGender === "F") {
                     console.log("Verify User...")
                     const receipt = await verifyUser(
@@ -59,10 +58,9 @@ const AnonLogin = () => {
 
     const fetchUser = useCallback(async () => {
         try {
-            // toast.warn("")
             const user = await fetchUserByAddress(currentAccount);
             console.log(user);
-            if (user.name === "" ) {
+            if (user.name === "") {
                 navigate("/register");
             }
         } catch (err) {
@@ -79,12 +77,6 @@ const AnonLogin = () => {
 
     return (
         <div>
-            {/* <input
-        id="text-input"
-        type="text"
-        value={userGender} // Bind the input value to the state
-        onChange={handleChange} // Call handleChange function on input change
-      /> */}
             <select id="gender-select" onChange={handleGenderChange}>
                 <option value="">Select</option>
                 <option value="M">Male</option>
@@ -95,7 +87,6 @@ const AnonLogin = () => {
             <LogInWithAnonAadhaar nullifierSeed={1234} fieldsToReveal={["revealAgeAbove18", "revealGender"]} />
 
             <div className="flex flex-col items-center gap-4 rounded-2xl max-w-screen-sm mx-auto p-8">
-                {/* Render the proof if generated and valid */}
                 {anonAadhaar.status === "logged-in" && (
                     <>
                         {latestProof && (

@@ -2,11 +2,11 @@ import React from "react";
 import styles from "./Admin.module.css";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useState, useEffect, useRef } from "react";
-import MoonLoader from "react-spinners/MoonLoader";
+// import MoonLoader from "react-spinners/MoonLoader";
 import { ToastContainer, toast } from "react-toastify";
 import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import axios from "axios";
+// import axios from "axios";
 import { useAuth } from "../../Context/AuthContext";
 import { useSafeBuyContext } from "../../Context/SafeBuyContext";
 
@@ -72,23 +72,6 @@ const Admin = () => {
       console.log(err);
     }
   });
-  // const companies = [
-  //     {
-  //         name: "Boat",
-  //         cin: "U74999UP2016PTC084312",
-  //         category: "Electronics"
-  //     },
-  //     {
-  //         name: "Samsung",
-  //         cin: "U74999UP2016PTC084312",
-  //         category: "Electronics"
-  //     },
-  //     {
-  //         name: "Britania 50-50",
-  //         cin: "U74999UP2016PTC084312",
-  //         category: "Snacks"
-  //     }
-  // ];
 
   return (
     <>
