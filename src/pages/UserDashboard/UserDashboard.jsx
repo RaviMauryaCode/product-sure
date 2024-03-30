@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./UserDashboard.module.css";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useState, useEffect, useRef } from "react";
-import MoonLoader from "react-spinners/MoonLoader";
+// import MoonLoader from "react-spinners/MoonLoader";
 import { ToastContainer, toast } from "react-toastify";
-import axios from "axios";
+// import axios from "axios";
 import { useSafeBuyContext } from "../../Context/SafeBuyContext";
 import { useAuth } from "../../Context/AuthContext";
 
@@ -14,7 +14,9 @@ const UserDashboard = () => {
 	const { checkIfWalletConnected, currentAccount } = useAuth();
 	const [user, setUser] = useState([]);
 
+
 	useEffect(() => {
+
 		checkIfWalletConnected();
 		if (currentAccount) {
 			fetchUser();
@@ -24,22 +26,22 @@ const UserDashboard = () => {
 
 	const {
 		registerUser,
-		fetchUserByAddress,fetchAllItems,
+		fetchUserByAddress, fetchAllItems,
 		fetchUserItems,
-		fetchAllCompaniesNFT,fetchProductById
+		fetchAllCompaniesNFT, fetchProductById
 	} = useSafeBuyContext();
 	const fetchUser = useCallback(async () => {
 		try {
 			const data = await fetchUserByAddress(currentAccount);
 			console.log(data)
-			if(data.isVerified) {
+			if (data.isVerified) {
 				console.log(data);
 				setUser(data);
 			} else {
 				// TODO : Nikheel : Add navigation
 				navigate("/anonVerify")
 			}
-			
+
 		} catch (err) {
 			navigate("/register");
 		}
@@ -47,20 +49,20 @@ const UserDashboard = () => {
 
 	const fetchUserProductItems = async () => {
 		try {
-			
-				const temp = await fetchUserItems();
-				console.log(temp);
-				const result = [];
-				for(let j=0; j<temp.length; j++){
-					const prod = await fetchProductById(temp[j].productId);
-					result.push({
-						name: prod.name,
-						expiry: temp[j].ex_date,
-						cid: temp[j].cid
-					})	
-				}
-				// result = [...result, ...temp];
-				console.log(temp)
+
+			const temp = await fetchUserItems();
+			console.log(temp);
+			const result = [];
+			for (let j = 0; j < temp.length; j++) {
+				const prod = await fetchProductById(temp[j].productId);
+				result.push({
+					name: prod.name,
+					expiry: temp[j].ex_date,
+					cid: temp[j].cid
+				})
+			}
+			// result = [...result, ...temp];
+			console.log(temp)
 			setProducts(result);
 		} catch (err) {
 			console.log(err);
@@ -68,7 +70,7 @@ const UserDashboard = () => {
 	};
 
 	const [products, setProducts] = useState([
-		
+
 	]);
 
 	return (

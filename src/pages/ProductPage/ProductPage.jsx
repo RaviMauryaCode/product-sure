@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 import { useAuth } from "../../Context/AuthContext";
 import { useSafeBuyContext } from "../../Context/SafeBuyContext";
 import styles from "./ProductPage.module.css";
@@ -160,6 +160,7 @@ const ProductPage = () => {
 	const [expiryDate, setExpiryDate] = useState();
 	const [validity, setValidity] = useState(0);
 
+
 	return (
 		<div className={styles.productPageContainer}>
 			<div className={styles.productPageContent}>
@@ -195,6 +196,7 @@ const ProductPage = () => {
 					<span className={styles.detailsHeading}>
 						Generate New Codes
 					</span>
+
 					<div className={styles.genCodeContent}>
 						<div className={styles.inputContainer}>
 							<label className={styles.inputLabel}>
@@ -238,6 +240,7 @@ const ProductPage = () => {
 								value={validity}
 							/>
 						</div>
+						
 						<div>
 							<button
 								className={styles.genCodesBtn}
